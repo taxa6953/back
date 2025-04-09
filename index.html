@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>اداره کل مدیریت بحران</title>
-  <!-- فونت فارسی -->
+  <!-- فونت فارسی وزیر -->
   <link rel="stylesheet" href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" />
   <style>
     body {
@@ -15,103 +15,45 @@
       direction: rtl;
     }
 
-    /* هدر */
-    .header {
+    /* بخش تصویر بزرگ هدر (hero) */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('your-hero-image.jpg') no-repeat center center/cover;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ccc;
+      text-align: center;
     }
 
-    .logo {
-      width: 48px;
-      height: auto;
+    /* لوگو بالا سمت راست داخل هدر */
+    .hero .logo {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 80px;
     }
 
-    .header-text h1 {
-      font-size: 20px;
-      margin: 0 0 5px 0;
-    }
-
-    .header-text h2 {
-      font-size: 14px;
-      color: #666;
-      margin: 0;
-    }
-
-    /* جست‌وجو */
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 8px 12px;
-      margin: 15px 20px;
-      max-width: 400px;
-    }
-
-    .search-box input {
-      border: none;
-      outline: none;
-      font-size: 14px;
-      flex: 1;
-      background: transparent;
-    }
-
-    .search-box img {
-      width: 20px;
-      height: 20px;
-    }
-
-    /* فیلترهای سریع */
-    .quick-filters {
-      display: flex;
-      gap: 10px;
-      padding: 0 20px 15px;
-      flex-wrap: wrap;
-    }
-
-    .filter-box {
-      background-color: #e0e0e0;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .filter-box:hover {
-      background-color: #d0d0d0;
-    }
-
-    /* بخش عنوان + دکمه بیشتر */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px;
-    }
-
-    .section-title {
-      font-size: 16px;
+    /* عنوان بزرگ سایت در وسط تصویر */
+    .hero-title {
+      font-size: 3rem;
       font-weight: bold;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
-    .more-button {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      font-size: 14px;
-      color: #0077cc;
-      gap: 5px;
-    }
-
-    .more-button img {
-      width: 16px;
-      height: 16px;
+    /* افکت شیشه‌ای (glassmorphism) برای بدنه بعد از هدر */
+    .glass-section {
+      position: relative;
+      margin-top: -120px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 100px 20px 50px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
     }
 
     /* کارت‌ها */
@@ -126,10 +68,11 @@
     .card {
       min-width: 200px;
       max-width: 200px;
-      background: white;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
       border-radius: 10px;
       padding: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
       flex-shrink: 0;
       scroll-snap-align: start;
     }
@@ -147,30 +90,38 @@
 
     .card-text {
       font-size: 13px;
-      color: #555;
+      color: #fff;
     }
 
-    /* ریسپانسیو */
-    @media screen and (max-width: 768px) {
-      .card {
-        min-width: 160px;
-        max-width: 160px;
-      }
-
-      .header-text h1 {
-        font-size: 18px;
-      }
-
-      .header-text h2 {
-        font-size: 13px;
-      }
-
-      .search-box {
-        max-width: 100%;
-        margin: 15px;
-      }
+    /* عنوان هر بخش و دکمه بیشتر */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px;
+      color: white;
     }
-        /* فوتر */
+
+    .section-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .more-button {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 14px;
+      color: #00c3ff;
+      gap: 5px;
+    }
+
+    .more-button img {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* فوتر ساده */
     footer {
       text-align: center;
       padding: 10px;
@@ -181,85 +132,74 @@
 </head>
 <body>
 
-  <!-- هدر -->
-  <div class="header">
-    <div class="header-text">
-      <h1>اداره کل مدیریت بحران</h1>
-      <h2>استان سیستان و بلوچستان</h2>
+  <!-- تصویر هدر بزرگ با لوگو و عنوان -->
+  <section class="hero">
+    <img src="logo.png" class="logo" alt="لوگو" />
+    <div class="hero-title">اداره کل مدیریت بحران</div>
+  </section>
+
+  <!-- بخش شیشه‌ای شامل کارت‌ها -->
+  <section class="glass-section">
+
+    <!-- مقاصد محبوب -->
+    <div class="section-header">
+      <div class="section-title">مقاصد محبوب</div>
+      <a href="popular/index.html" class="more-button">
+        <span>بیشتر</span>
+        <img src="more.png" alt="بیشتر" />
+      </a>
     </div>
-    <img src="Logo.png" class="logo" alt="لوگو" />
-  </div>
 
-  <!-- جست‌وجو -->
-  <div class="search-box">
-    <input type="text" placeholder="جست و جو..." />
-    <img src="search.gif" alt="جست‌وجو" />
-  </div>
+    <div class="card-section">
+      <a href="popular/card1/index.html" class="card">
+        <img src="popular/image-card1.png" alt="تصویر ۱" />
+        <div class="card-title">عنوان کارت ١</div>
+        <div class="card-text">توضیح کوتاه</div>
+      </a>
+      <a href="popular/card2/index.html" class="card">
+        <img src="popular/image-card2.png" alt="تصویر ۲" />
+        <div class="card-title">عنوان کارت ٢</div>
+        <div class="card-text">توضیح کوتاه</div>
+      </a>
+      <a href="popular/card4/index.html" class="card">
+        <img src="popular/image-card4.png" alt="تصویر ۴" />
+        <div class="card-title">عنوان کارت ۴</div>
+        <div class="card-text">توضیح کوتاه</div>
+      </a>
+    </div>
 
-  <!-- فیلترهای سریع -->
-  <div class="quick-filters">
-    <div class="filter-box">زلزله</div>
-    <div class="filter-box">سیل</div>
-    <div class="filter-box">طوفان</div>
-  </div>
+    <!-- پوشش‌ها -->
+    <div class="section-header">
+      <div class="section-title">پوشش‌ها</div>
+      <a href="poshe/index.html" class="more-button">
+        <span>بیشتر</span>
+        <img src="more.png" alt="بیشتر" />
+      </a>
+    </div>
 
-  <!-- مقاصد محبوب -->
-  <div class="section-header">
-    <div class="section-title">مقاصد محبوب</div>
-    <a href="popular/index.html" class="more-button">
-      <span>بیشتر</span>
-      <img src="more.png" alt="بیشتر" />
-    </a>
-  </div>
-  
-  <div class="card-section">
-    <a href="popular/card1/index.html" class="card">
-      <img src="popular/image-card1.png" alt="تصویر ۱" />
-      <div class="card-title">عنوان کارت ١</div>
-      <div class="card-text">توضیح کوتاه</div>
-    </a>
-    <a href="popular/card2/index.html" class="card">
-      <img src="popular/image-card2.png" alt="تصویر ۲" />
-      <div class="card-title">عنوان کارت ٢</div>
-      <div class="card-text">توضیح کوتاه</div>
-    </a>
-    <a href="popular/card4/index.html" class="card">
-      <img src="popular/image-card4.png" alt="تصویر ۴" />
-      <div class="card-title">عنوان کارت ۴</div>
-      <div class="card-text">توضیح کوتاه</div>
-    </a>
-  </div>
+    <div class="card-section">
+      <a href="poshe/card1/index.html" class="card">
+        <img src="poshe/image-card1.png" alt="تصویر پوشش ۱" />
+        <div class="card-title">عنوان پوشش ١</div>
+        <div class="card-text">توضیح کوتاه پوشش</div>
+      </a>
+      <a href="poshe/card2/index.html" class="card">
+        <img src="poshe/image-card2.png" alt="تصویر پوشش ۲" />
+        <div class="card-title">عنوان پوشش ٢</div>
+        <div class="card-text">توضیح کوتاه پوشش</div>
+      </a>
+      <a href="poshe/card3/index.html" class="card">
+        <img src="poshe/image-card3.png" alt="تصویر پوشش ۳" />
+        <div class="card-title">عنوان پوشش ٣</div>
+        <div class="card-text">توضیح کوتاه پوشش</div>
+      </a>
+    </div>
+  </section>
 
-  <!-- پوشش‌ها -->
-<div class="section-header">
-  <div class="section-title">پوشش‌ها</div>
-  <a href="poshe/index.html" class="more-button">
-    <span>بیشتر</span>
-    <img src="more.png" alt="بیشتر" />
-  </a>
-</div>
-
-<div class="card-section">
-  <a href="poshe/card1/index.html" class="card">
-    <img src="poshe/image-card1.png" alt="تصویر پوشش ۱" />
-    <div class="card-title">عنوان پوشش ١</div>
-    <div class="card-text">توضیح کوتاه پوشش</div>
-  </a>
-  <a href="poshe/card2/index.html" class="card">
-    <img src="poshe/image-card2.png" alt="تصویر پوشش ۲" />
-    <div class="card-title">عنوان پوشش ٢</div>
-    <div class="card-text">توضیح کوتاه پوشش</div>
-  </a>
-  <a href="poshe/card3/index.html" class="card">
-    <img src="poshe/image-card3.png" alt="تصویر پوشش ۳" />
-    <div class="card-title">عنوان پوشش ٣</div>
-    <div class="card-text">توضیح کوتاه پوشش</div>
-  </a>
-</div>
-  
   <!-- فوتر -->
   <footer>
     طراح وب‌سایت: مهندس طاها سرگزی
   </footer>
+
 </body>
 </html>
